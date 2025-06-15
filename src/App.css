@@ -3,3 +3,11 @@
 body{
   background-color: #0f0f4f;
 }
+
+.green-circle {
+  background: linear-gradient(#049730, #23f669); /* Green gradient */
+}
+
+.orange-circle {
+  background: linear-gradient(#ff7f00, #ffb300); /* Orange gradient */
+}
