@@ -4,7 +4,7 @@
 
 import React, { useState } from 'react';
 import { login } from '../lib/auth'; // Assuming login function is in auth.js
-import logoPath from '../assets/images/logo/logo.svg'; // Path to the logo image
+import logoPath from '../assets/images/logo/logo.png'; // Path to the logo image
 
 /**
  * @function LoginForm
