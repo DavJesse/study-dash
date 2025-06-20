@@ -15,8 +15,8 @@ export function LoginForm() {
                     <button className='mt-10 h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer'>Log In</button>
                 </div>
         </form>
-        <div className="green-circle w-24 h-24 absolute rounded-full left-[14%] top-[14%] md:left-[24%] md:top-[24%] lg:left-[31%] lg:top-[6%] xl:left-[34%] xl:top-[17%] 2xl:left-[38%] 2xl:top-[18%] overflow-hidden"></div>
-        <div className="orange-circle w-24 h-24 absolute rounded-full right-[14%] bottom-[14%] md:right-[24%] md:bottom-[24%] lg:right-[31%] lg:bottom-[6%] xl:right-[34%] xl:bottom-[17%] 2xl:right-[38%] 2xl:bottom-[18%] overflow-hidden"></div>
+        <div className="green-circle w-30 h-30 absolute rounded-full left-[0%] top-[20%] md:left-[24%] md:top-[24%] lg:left-[31%] lg:top-[6%] xl:left-[34%] xl:top-[17%] 2xl:left-[38%] 2xl:top-[18%] overflow-hidden"></div>
+        <div className="orange-circle w-30 h-30 absolute rounded-full right-[0%] bottom-[20%] md:right-[24%] md:bottom-[24%] lg:right-[31%] lg:bottom-[6%] xl:right-[34%] xl:bottom-[17%] 2xl:right-[38%] 2xl:bottom-[18%] overflow-hidden"></div>
     </div>
     )
 }
