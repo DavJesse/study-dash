@@ -2,6 +2,23 @@ import { useState } from 'react';
 import { login } from '../lib/auth';
 import logoPath from '../assets/images/logo/logo.png';
 
+/**
+ * @file Defines the LoginForm component for user authentication.
+ */
+
+import React, { useState } from 'react';
+import { login } from '../utils/auth'; // Assuming login function is in auth.js
+import logoPath from '../assets/logo.svg'; // Path to the logo image
+
+/**
+ * @function LoginForm
+ * @description A functional component that renders a login form.
+ *              It handles user input for username (email) and password,
+ *              attempts to log the user in, and redirects to the dashboard upon success.
+ *              Displays an error message if login fails.
+ * @returns {JSX.Element} The LoginForm component.
+ */
+
 export function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
