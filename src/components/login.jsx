@@ -24,7 +24,7 @@ export function LoginForm() {
         e.preventDefault();
         try {
             await login({ email: username, password });
-            window.location.href = '/dashboard';
+            window.location.href = '/';
         } catch (err) {
             setError(err.message);
         }
