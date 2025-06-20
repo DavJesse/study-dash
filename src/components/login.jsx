@@ -1,14 +1,10 @@
-import { useState } from 'react';
-import { login } from '../lib/auth';
-import logoPath from '../assets/images/logo/logo.png';
-
 /**
  * @file Defines the LoginForm component for user authentication.
  */
 
 import React, { useState } from 'react';
-import { login } from '../utils/auth'; // Assuming login function is in auth.js
-import logoPath from '../assets/logo.svg'; // Path to the logo image
+import { login } from '../lib/auth'; // Assuming login function is in auth.js
+import logoPath from '../assets/images/logo/logo.svg'; // Path to the logo image
 
 /**
  * @function LoginForm
