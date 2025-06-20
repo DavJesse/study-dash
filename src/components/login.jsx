@@ -1,16 +1,52 @@
+import { useState } from 'react';
+import { login } from '../lib/auth';
 import logoPath from '../assets/images/logo/logo.png';
 
 export function LoginForm() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await login({ email: username, password });
+            window.location.href = '/dashboard';
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
     return (
     <div className="min-h-screen h-fit w-screen relative">
-        <form className='h-fit w-80 bg-white/15 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[35px] py-[50px] flex flex-col justify-center gap-6 z-10'>
+        <form
+            onSubmit={handleSubmit}
+            className='h-fit w-80 bg-white/15 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[35px] py-[50px] flex flex-col justify-center gap-6 z-10'
+            >
             <img src={logoPath} alt="Logo" className='h-30 w-auto max-w-full object-contain'></img>
                 <div className='flex flex-col justify-center'>
+                    <div className='flex justify-center text-red-500'>
+                        <p>{error}</p>
+                    </div>
                     <label htmlFor="username" className='block text-white text-base font-medium'>Username</label>
-                    <input type="text" placeholder="Username or Email" id="username" className='block h-10 bg-white/10 text-white rounded px-[10px] mb-2 text-sm font-light'></input>
+                    <input
+                        type="text"
+                        placeholder="Username or Email"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className='block h-10 bg-white/10 text-white rounded px-[10px] mb-2 text-sm font-light'
+                        ></input>
 
                     <label htmlFor="password" className='block text-white text-base font-medium'>Password</label>
-                    <input type="password" placeholder="Password" id="password" className='block h-10 bg-white/10 text-white rounded px-[10px] text-sm font-light'></input>
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className='block h-10 bg-white/10 text-white rounded px-[10px] text-sm font-light'
+                        ></input>
 
                     <button className='mt-10 h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer'>Log In</button>
                 </div>
