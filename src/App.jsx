@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import { useAuth } from './hooks/auth'
 import { LoginForm } from './components/login'
 import { Dashboard } from './components/dashboard'
-import { NotFound } from './components/not-found'
+import { NotFound } from './components/not_found'
 
 function App() {
   const { user, loading, isLoggedIn } = useAuth();
