@@ -27,7 +27,7 @@ function App() {
           }
           />
 
-      <Route path='*' element={<Not Found />} />
+      <Route path='*' element={<NotFound />} />
     </Routes>
   )
 }
