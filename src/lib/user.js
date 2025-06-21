@@ -1,6 +1,5 @@
 import { API_URL } from "./auth";
-import { getToken } from "./auth";
-import { useState, useEffect } from "react";
+import { getToken } from "./auth";;
 
 export async function fetchCurrentUser() {
     const token = getToken();
@@ -22,7 +21,9 @@ export async function fetchCurrentUser() {
         }),
     });
 
+    if (!response.ok) return null;
+
     const { data, errors} = await response.json();
-    if (errors || !data.user) return null;
+    if (errors || !data.user || !data) return null;
     return data.user;
 }
