@@ -1,4 +1,4 @@
-const API_URL = 'https://learn.zone01kisumu.ke/api/auth/signin'
+export const API_URL = 'https://learn.zone01kisumu.ke/api/auth/signin'
 
 /**
  * @async
