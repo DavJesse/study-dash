@@ -27,6 +27,20 @@ export async function fetchDashboardData() {
                     type
                   }
                 }
+
+                progress {
+                  grade
+                  path
+                  createdAt
+                }
+
+                result {
+                  id
+                  grade
+                  type
+                  createdAt
+                  path
+                }
               }`,
         }),
     })
