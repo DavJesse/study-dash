@@ -33,5 +33,5 @@ export async function fetchCurrentUser() {
         return null;
     }
 
-    return data.user[0].login;
+    return data.user[0];
 }
