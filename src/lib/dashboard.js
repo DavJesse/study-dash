@@ -1,4 +1,4 @@
-import { getToken, API_URL } from "./auth";
+import { getToken } from "./auth";
 
 export async function fetchDashboardData() {
     const token = getToken();
