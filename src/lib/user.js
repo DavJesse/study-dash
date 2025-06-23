@@ -1,4 +1,3 @@
-import { API_URL } from "./auth";
 import { getToken } from "./auth";;
 
 export async function fetchCurrentUser() {
@@ -9,21 +8,30 @@ export async function fetchCurrentUser() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
+            'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
             query: `{
                 user {
                     id
                     login
-                    }
-                }`
+                }
+            }`,
         }),
     });
 
-    if (!response.ok) return null;
+    if (!response.ok) {
+        console.error('Failed to fetch user:', response.statusText);
+        return null;
+    }
 
-    const { data, errors} = await response.json();
-    if (errors || !data.user || !data) return null;
-    return data.user;
+    const { data, errors } = await response.json();
+    console.log('Data: ', data.user[0]);
+
+    if (errors || !data || !data.user || data.user.length === 0) {
+        console.error('No user found or GraphQL errors:', errors);
+        return null;
+    }
+
+    return data.user[0].login;
 }
