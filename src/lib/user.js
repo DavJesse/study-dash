@@ -5,7 +5,7 @@ export async function fetchCurrentUser() {
     const token = getToken();
     if (!token) return null;
 
-    const response = await fetch(API_URL, {
+    const response = await fetch('https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
