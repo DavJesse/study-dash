@@ -35,7 +35,7 @@ export async function login({email, password}) {
         throw new Error('Invalid Email or Password');
     }
 
-    const { token } = await response.json();
+    const token = await response.json();
     localStorage.setItem('jwt', token)
     return token;
 }
