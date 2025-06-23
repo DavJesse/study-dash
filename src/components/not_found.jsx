@@ -1,3 +1,13 @@
+/**
+ * @function NotFound
+ * @description A React component that renders a 404 Not Found page.
+ *
+ * @returns {JSX.Element} A JSX element representing the 404 Not Found page.
+ *
+ * @example
+ * // Usage:
+ * <NotFound />
+ */
 export function NotFound() {
     return (
         <div className="min-h-screen h-screen w-screen flex items-center justify-center relative">
