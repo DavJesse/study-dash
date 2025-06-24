@@ -15,14 +15,14 @@ export function XPLineGraph({ data, width = 600, height = 300 }) {
   const points = data.map(d => `${getX(d.date)},${getY(d.xp)}`).join(" ");
 
   return (
-    <svg width={width} height={height} style={{ background: "#222", borderRadius: 8 }}>
+    <svg width={width} height={height} style={{ borderRadius: 8 }}>
       {/* Axes */}
-      <line x1={20} y1={height - 20} x2={width - 20} y2={height - 20} stroke="#888" />
-      <line x1={20} y1={20} x2={20} y2={height - 20} stroke="#888" />
+      <line x1={20} y1={height - 20} x2={width - 20} y2={height - 20} stroke="#23f669" />
+      <line x1={20} y1={20} x2={20} y2={height - 20} stroke="#23f669" />
       {/* XP Line */}
       <polyline
         fill="none"
-        stroke="#4ade80"
+        stroke="#ff7f00"
         strokeWidth="3"
         points={points}
       />
@@ -33,7 +33,7 @@ export function XPLineGraph({ data, width = 600, height = 300 }) {
           cx={getX(d.date)}
           cy={getY(d.xp)}
           r={2}
-          fill="#fff"
+          fill="#ffb300"
         />
       ))}
     </svg>
