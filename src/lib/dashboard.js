@@ -1,5 +1,13 @@
 import { getToken } from "./auth";
 
+/**
+ * @async
+ * @function fetchDashboardData
+ * @description Fetches dashboard data from the GraphQL API.
+ * @returns {Promise<Object>} A promise that resolves to the dashboard data.
+ * @throws {Error} If the fetch request fails or if the GraphQL query returns errors.
+ */
+
 export async function fetchDashboardData() {
     const token = getToken();
 
