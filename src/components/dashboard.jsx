@@ -2,6 +2,7 @@ import { fetchDashboardData } from "../lib/dashboard"
 import { logout, getToken } from "../lib/auth"
 import { useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
+import { XPLineGraph } from "./graphs"
 
 export function Dashboard() {
     const [data, setData] = useState(null);
@@ -36,7 +37,7 @@ export function Dashboard() {
 
     // Data Extraction
     const {user, transaction, progress, result} = data;
-
+    console.log('transaction', transaction);
     // Calculate Total XP
     const totalXP = transaction.reduce((acc, tx) => acc + tx.amount, 0);
 
@@ -44,19 +45,21 @@ export function Dashboard() {
     const passCount = result.filter(r => r.grade === 1).length;
     const failCount = result.filter(r => r.grade === 0).length;
 
-    // Prepare XP data for the graph
-    const xpTransactions = transaction
-    .filter(tx => tx.type === "xp")
-    .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-    
-    let cumulativeXP = 0;
-    const xpOverTime = xpTransactions.map(tx => {
+   // Sort transactions by date
+const sortedTransactions = [...transaction].sort(
+    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+  );
+  
+  // Calculate cumulative XP over time
+  let cumulativeXP = 0;
+  const xpOverTime = sortedTransactions.map(tx => {
     cumulativeXP += tx.amount;
     return {
       date: new Date(tx.createdAt),
-      xp: cumulativeXP
+      xp: cumulativeXP,
+      label: tx.object.name // Optional: for tooltips or labels
     };
-    });
+  });
 
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center gap-2">
@@ -86,7 +89,10 @@ export function Dashboard() {
                 {/* Graph Cards */}
                 <div className="flex flex-row w-[95%] xl:w-[60%] gap-2">
                     <div className="w-[50%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
-
+                        <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light">XP Over Time:</h2>
+                        <div className="w-[95%] xl:w-[60%] mt-4">
+                          <XPLineGraph data={xpOverTime} width={400} height={200} />
+                        </div>
                     </div>
 
                     <div className="w-[50%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
