@@ -10,7 +10,8 @@ function App() {
   if (loading) {
     return <div>Checking Login Status...</div>
   }
-
+  console.log('User: ', user)
+  console.log('Loading: ', loading)  
   return (
     <Routes>
       <Route

@@ -26,7 +26,6 @@ export async function fetchCurrentUser() {
     }
 
     const { data, errors } = await response.json();
-    console.log('Data: ', data.user[0]);
 
     if (errors || !data || !data.user || data.user.length === 0) {
         console.error('No user found or GraphQL errors:', errors);
