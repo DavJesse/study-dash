@@ -10,8 +10,7 @@ function App() {
   if (loading) {
     return <div>Checking Login Status...</div>
   }
-  console.log('User: ', user)
-  console.log('Loading: ', loading)  
+
   return (
     <Routes>
       <Route
@@ -24,7 +23,7 @@ function App() {
       <Route
         path='/'
         element={
-          isLoggedIn ? <Navigate to='/login' replace /> : <Dashboard />
+          isLoggedIn ? <Dashboard /> : <Navigate to='/login' replace />
           }
           />
 
