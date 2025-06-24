@@ -47,15 +47,15 @@ export async function fetchDashboardData() {
 
     if (!response.ok) {
       console.error('Failed to fetch dashboard data:', response.statusText);
-      return null;
+      throw new Error("Failed to fetch dashboard data");
     }
 
     const { data, errors } = await response.json();
 
     if (errors || !data) {
       console.error('GraphQL errors:', errors);
-      return null;
+      throw new Error("GraphQL query failed");
     }
-    
+
     return data;
 }
