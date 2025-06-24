@@ -1,5 +1,17 @@
 import { getToken } from "./auth";;
 
+/**
+ * @async
+ * @function fetchCurrentUser
+ * @description Fetches the current user's data from the GraphQL API.
+ *              It retrieves the token, makes a request to the GraphQL endpoint,
+ *              and returns the user data if successful.
+ * @returns {Promise<object|null>} A promise that resolves to the user object if found,
+ *                                 or null if no user is found or if an error occurs.
+ *                                 The user object contains 'id' and 'login' properties.
+ * @throws {Error} If the fetch operation fails or if the GraphQL query returns errors.
+ */
+
 export async function fetchCurrentUser() {
     const token = getToken();
     if (!token) return null;
