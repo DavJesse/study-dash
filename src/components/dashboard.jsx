@@ -1,24 +1,34 @@
 import { fetchDashboardData } from "../lib/dashboard"
 import { logout } from "../lib/auth"
-import { useState, useEffect } from "react"
+import { useState, useEffect} from "react"
+import { useNavigate } from "react-router-dom"
 
 export function Dashboard() {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState(null);
+    const navigate = useNavigate();
+
+    // Fetch Dashboard Data
     useEffect(() => {
         fetchDashboardData().then(setData)
-    },[])
+    },[]);
 
     if (!data) return <div>Loading Dashboard</div>
-console.log('Dashboard Data: ', data)
+
+    // Handle Logout
+    const handleLogout = () => {
+        logout()
+        navigate('/login')
+    }
+
     // Data Extraction
-    const {user, transaction, progress, result} = data
+    const {user, transaction, progress, result} = data;
 
     // Calculate Total XP
-    const totalXP = transaction.reduce((acc, tx) => acc + tx.amount, 0)
+    const totalXP = transaction.reduce((acc, tx) => acc + tx.amount, 0);
 
     // Calculate Pass/Fail Ratio
-    const passCount = result.filter(r => r.grade === 1).length
-    const failCount = result.filter(r => r.grade === 0).length
+    const passCount = result.filter(r => r.grade === 1).length;
+    const failCount = result.filter(r => r.grade === 0).length;
 
     return (
         <div className="flex flex-col">
@@ -27,7 +37,7 @@ console.log('Dashboard Data: ', data)
                 <div className="flex flex-row justify-between items-center mb-6">
                     <h1 className="text-white font-light text-[24px] md:text-[24px] xl:text-[51.3px]">Welcome, <strong className="font-bold">{user[0].login}</strong></h1>
                     <button
-                        onClick={logout()}
+                        onClick={handleLogout}
                         className="w-20 md:w-40 h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer"
                         >logout</button>
                 </div>
