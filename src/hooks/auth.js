@@ -8,19 +8,38 @@ export function useAuth() {
 
     useEffect(() => {
         const check = async () => {
-            if (!getToken()) {
+            const token = getToken();
+    
+            if (!token) {
                 setUser(null);
                 setLoading(false);
                 return;
             }
-
-            const user = await fetchCurrentUser();
-            setUser(user);
-            setLoading(false);
-        }
-
+    
+            try {
+                const currUser = await fetchCurrentUser();
+                setUser(currUser);
+            } catch (err) {
+                console.error('Error fetching user:', err.message);
+                setUser(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+    
         check();
+
+        // Listen for changes to local storage (e.g., logout)
+        const handleStorageChange = () => {
+            check();
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
     }, []);
 
-    return { user, loading, 'isLoggedIn': !!user};
+    return { user, loading, isLoggedIn: !!user };
 }

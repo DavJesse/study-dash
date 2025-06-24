@@ -7,6 +7,7 @@ import { NotFound } from './components/not_found'
 
 function App() {
   const { user, loading, isLoggedIn } = useAuth();
+  
   if (loading) {
     return <div>Checking Login Status...</div>
   }

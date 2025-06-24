@@ -41,7 +41,8 @@ export async function login({email, password}) {
 }
 
 export function logout() {
-    localStorage.removeItem('jwt');
+    localStorage.removeItem('jwt'); // Remove the JWT
+    window.dispatchEvent(new Event('storage')); // Trigger the storage event
   }
   
 export function getToken() {
