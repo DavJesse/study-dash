@@ -45,23 +45,29 @@ export function Dashboard() {
     const failCount = result.filter(r => r.grade === 0).length;
 
     return (
-        <div className="flex flex-col">
+        <div className="w-screen h-screen flex flex-col items-center justify-center gap-2">
             {/* Name Card */}
-            <div className="w-[95%] xl:w-[80%] h-fit bg-white/15 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] justify-center z-10">
-                <div className="flex flex-row justify-between items-center mb-6">
+            <div className="w-[95%] xl:w-[60%] h-fit bg-white/15 mt-1 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px]">
+                <div className="flex flex-row justify-between items-center">
                     <h2 className="text-white font-light text-[22px] md:text-3xl xl:text-4xl">Welcome, <strong className="font-bold">{user[0].login}</strong></h2>
                     <button
                         onClick={handleLogout}
                         className="w-20 md:w-40 h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer"
                         >logout</button>
-                </div>
-                                        
-                {/* Stats Card */}
-                <div className="flex flex-row justify-between">
-                        <h2 className="text-gray-200 md:text-2xl xl:text-3xl font-light">Total XP: <strong className="font-bold text-[var(--green-accent-color)]">{totalXP}</strong></h2>                    
-                        <h2 className="text-gray-200 md:text-2xl xl:text-3xl font-light">Pass/Fail Ratio: <strong className="font-bold text-[var(--orange-accent-color)]">{passCount}/{failCount}</strong></h2>
-                </div>
+                </div>                                        
             </div>
+                {/* Stats Card */}
+                <div className="flex flex-row w-[95%] xl:w-[60%] gap-2">
+                    <div className="w-[50%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
+                        <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light">Total XP:</h2>
+                        <h2 className="font-bold text-[var(--green-accent-color)] text:2xl md:text-3xl"><strong>{totalXP}</strong></h2>         
+                    </div>
+
+                    <div className="w-[50%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
+                        <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light">Pass/Fail Ratio:</h2>
+                        <h2 className="font-bold text-[var(--orange-accent-color)] text:2xl md:text-3xl"><strong>{passCount}/{failCount}</strong></h2>
+                    </div>
+                </div>
         </div>
     )
 }
