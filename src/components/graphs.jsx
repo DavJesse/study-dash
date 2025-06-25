@@ -1,6 +1,29 @@
-export function XPLineGraph({ data, width = 600, height = 300 }) {
-  if (!data.length) return <div>No XP data</div>;
+import { useState, useEffect } from "react";
 
+export function XPLineGraph({ data }) {
+  if (!data.length) return <div className="text-[var(--orange-accent-color)] mx-auto my-auto">No XP data</div>;
+
+  const [dimensions, setDimensions] = useState({ width:460, height:230 });
+
+  useEffect(() => {
+    const handleSize = () => {
+      const screenWidth = window.innerWidth;
+      let width = 460;
+      let height = 230;
+
+      if (screenWidth < 768) {
+        width = 340;
+        height = 170;
+      }
+      setDimensions({ width, height });
+    }
+
+    handleSize();
+    window.addEventListener("resize", handleSize);
+    return () => window.removeEventListener("resize", handleSize);
+  }, [])
+
+  const { width, height } = dimensions;
   const minDate = data[0].date;
   const maxDate = data[data.length - 1].date;
   const minXP = 0;
