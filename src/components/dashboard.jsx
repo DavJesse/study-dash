@@ -87,11 +87,11 @@ const sortedTransactions = [...transaction].sort(
                 </div>
 
                 {/* Graph Cards */}
-                <div className="flex flex-col md:flex-row w-[95%] xl:w-[60%] gap-2">
+                <div className="flex flex-col lg:flex-row w-[95%] xl:w-[60%] gap-2">
                     <div className="w-[100%] md:w-[50%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] flex flex-col z-10">
                         <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light ml-[30px]">XP Over Time:</h2>
-                        <div className="w-[95%] xl:w-fit mx-auto my-auto">
-                          <XPLineGraph data={xpOverTime} width={460} height={230} />
+                        <div className="w-fit mx-auto my-auto">
+                          <XPLineGraph data={xpOverTime} />
                         </div>
                     </div>
 
