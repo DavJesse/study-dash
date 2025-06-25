@@ -11,9 +11,15 @@ export function XPLineGraph({ data }) {
       let width = 460;
       let height = 230;
 
-      if (screenWidth < 768) {
+      if (screenWidth < 480) {
+        width = 280;
+        height = 140;
+      } else if (screenWidth < 768) {
         width = 340;
         height = 170;
+      } else if (screenWidth < 1024) {
+        width = 400;
+        height = 200;
       }
       setDimensions({ width, height });
     }
