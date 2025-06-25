@@ -2,7 +2,7 @@ import { fetchDashboardData } from "../lib/dashboard"
 import { logout, getToken } from "../lib/auth"
 import { useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
-import { XPLineGraph } from "./graphs"
+import { XPLineGraph, PassFailPieChart } from "./graphs"
 
 export function Dashboard() {
     const [data, setData] = useState(null);
@@ -62,7 +62,7 @@ const sortedTransactions = [...transaction].sort(
   });
 
     return (
-        <div className="w-screen h-screen flex flex-col items-center justify-center gap-2">
+        <div className="w-screen min-h-screen h-fit flex flex-col items-center justify-center gap-2">
             {/* Name Card */}
             <div className="w-[95%] xl:w-[60%] h-fit bg-white/15 mt-1 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px]">
                 <div className="flex flex-row justify-between items-center">
@@ -88,15 +88,18 @@ const sortedTransactions = [...transaction].sort(
 
                 {/* Graph Cards */}
                 <div className="flex flex-col lg:flex-row w-[95%] xl:w-[60%] gap-2">
-                    <div className="w-[100%] md:w-[50%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] flex flex-col z-10">
+                    <div className="w-[100%] md:w-[50%] h-70 bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] flex flex-col z-10">
                         <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light ml-[30px]">XP Over Time:</h2>
                         <div className="w-fit mx-auto my-auto">
                           <XPLineGraph data={xpOverTime} />
                         </div>
                     </div>
 
-                    <div className="w-[100%] md:w-[50%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
-
+                    <div className="w-[100%] md:w-[50%] h-70 bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] flex flex-col z-10">
+                        <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light ml-[30px]">Pass/Fail Ratio:</h2>
+                        <div className="w-fit mx-auto my-auto">
+                          <PassFailPieChart passCount={passCount} failCount={failCount} />
+                        </div>
                     </div>
                 </div>
         </div>
