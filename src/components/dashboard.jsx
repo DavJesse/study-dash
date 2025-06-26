@@ -4,6 +4,7 @@ import { useState, useEffect} from "react"
 import { FaPhone, FaEnvelope } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 import { XPLineGraph, PassFailPieChart } from "./graphs"
+import logo from '../assets/images/logo/logo.png'
 
 export function Dashboard() {
     const [data, setData] = useState(null);
@@ -38,7 +39,7 @@ export function Dashboard() {
     
     // Data Extraction
     const {user, transaction, progress, result} = data;
-    console.log('user', user);
+
     // Calculate Total XP and Audit Ratio
     let totalXP = transaction.reduce((acc, tx) => acc + tx.amount, 0);
     const auditRatio = Number(user[0].auditRatio).toFixed(2);
@@ -83,12 +84,16 @@ const sortedTransactions = [...transaction].sort(
 
     return (
         <div className="w-screen min-h-screen h-fit flex flex-col items-center justify-center gap-2">
+            <img
+                src={logo}
+                alt="Zone01 Logo"
+                className="h-30 w-auto max-w-full object-contain"
+            ></img>
             {/* Name Card */}
             <div className="w-[95%] xl:w-[60%] h-fit bg-white/15 mt-1 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:pt-[30px]">
                 {/* Welcome Statement */}
                 <div className="flex flex-row justify-between items-center">
-                    <h2 className="text-white font-light text-[22px] md:text-3xl xl:text-4xl">Welcome, <strong className="font-bold">{firstName}</strong></h2>
-                  
+                    <h2 className="text-white font-light text-[22px] md:text-3xl xl:text-4xl">Welcome, <strong className="font-bold">{firstName}</strong></h2>                  
                     <button
                         onClick={handleLogout}
                         className="w-20 md:w-40 h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer"
