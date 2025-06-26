@@ -126,13 +126,13 @@ const sortedTransactions = [...transaction].sort(
                     </div>
 
                       {/* Contact Information */}
-                      <div className="flex flex-row gap-6 mt-4">
-                            <div>
+                      <div className="flex flex-col sm:flex-row gap-6 mt-4">
+                            <div className="flex flex-row items-center gap-2">
                                 <FaPhone className="text-[var(--green-accent-color)] text-2xl" />
                                 <h2 className="text-gray-200">{phone}</h2>
                             </div>
-                            <h2 className="text-gray-200">|</h2>
-                            <div>
+                            <h2 className="text-gray-200 text-4xl font-light hidden sm:block">|</h2>
+                            <div className="flex flex-row items-center gap-2">
                               <FaEnvelope className="text-[var(--orange-accent-color)] text-2xl" />
                               <h2 className="text-gray-200">{email}</h2>
                             </div>
@@ -141,17 +141,17 @@ const sortedTransactions = [...transaction].sort(
             </div>
                 {/* Stats Card */}
                 <div className="flex flex-row w-[95%] xl:w-[60%] gap-2">
-                    <div className="w-[33.3%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
+                    <div className="w-[33.3%] min-h-22 h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
                         <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light">Total XP:</h2>
                         <h2 className="font-bold text-[var(--green-accent-color)] text:2xl md:text-3xl"><strong>{totalXP}</strong></h2>         
                     </div>
 
-                    <div className="w-[33.3%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
+                    <div className="w-[33.3%] min-h-22 h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
                         <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light">Audit Ratio:</h2>
                         <h2 className="font-bold text-[var(--green-accent-color)] text:2xl md:text-3xl"><strong>{auditRatio}</strong></h2>         
                     </div>
 
-                    <div className="w-[33.3%] h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
+                    <div className="w-[33.3%] min-h-22 h-fit bg-white/15 rounded-[10px] backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[10px] py-[10px] md:px-[35px] md:py-[30px] flex flex-col z-10">
                         <h2 className="text-gray-200 md:text-2xl xl:text-[20px] font-light">Pass/Fail Ratio:</h2>
                         <h2 className="font-bold text-[var(--orange-accent-color)] text:2xl md:text-3xl"><strong>{passCount}/{failCount}</strong></h2>
                     </div>
