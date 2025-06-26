@@ -22,6 +22,9 @@ export async function fetchDashboardData() {
                 user {
                   id
                   login
+                  email
+                  attrs
+                  auditRatio
                 }
         
                 transaction(
