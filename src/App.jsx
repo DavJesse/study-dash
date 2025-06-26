@@ -9,7 +9,7 @@ function App() {
   const { user, loading, isLoggedIn } = useAuth();
   
   if (loading) {
-    return <div>Checking Login Status...</div>
+    return <div className="text-4xl text-gray-200 px-20">Checking Login Status...</div>
   }
 
   return (
