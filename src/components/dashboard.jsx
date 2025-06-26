@@ -28,8 +28,8 @@ export function Dashboard() {
         });
     },[navigate]);
 
-    if (error) return <div>Error: {error}</div>
-    if (!data) return <div>Loading Dashboard</div>
+    if (error) return <div className="text-4xl text-gray-200 px-auto">Error: {error}</div>
+    if (!data) return <div className="text-4xl text-gray-200 px-20">Loading Dashboard</div>
 
     // Handle Logout
     const handleLogout = () => {
