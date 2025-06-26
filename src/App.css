@@ -1,4 +1,11 @@
 @import "tailwindcss";
+:root {
+  --primary-color: #0f0f4f; /* Dark blue */
+  --secondary-color: #049730; /* Green */
+  --green-accent-color: #23f669; /* Luminescent Green */
+  --orange-accent-color: #ff7f00; /* Orange */
+  --text-color: #ffffff; /* White */
+}
 
 body{
   background-color: #0f0f4f;
