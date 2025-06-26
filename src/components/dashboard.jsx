@@ -128,12 +128,12 @@ const sortedTransactions = [...transaction].sort(
                       {/* Contact Information */}
                       <div className="flex flex-col sm:flex-row gap-6 mt-4">
                             <div className="flex flex-row items-center gap-2">
-                                <FaPhone className="text-[var(--green-accent-color)] text-2xl" />
+                                <FaPhone className="text-[var(--green-accent-color)] text-base" />
                                 <h2 className="text-gray-200">{phone}</h2>
                             </div>
                             <h2 className="text-gray-200 text-4xl font-light hidden sm:block">|</h2>
                             <div className="flex flex-row items-center gap-2">
-                              <FaEnvelope className="text-[var(--orange-accent-color)] text-2xl" />
+                              <FaEnvelope className="text-[var(--orange-accent-color)] text-base" />
                               <h2 className="text-gray-200">{email}</h2>
                             </div>
                       </div>
