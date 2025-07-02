@@ -45,7 +45,7 @@ export function Dashboard() {
     
     // Data Extraction
     const {user, transaction, progress, result} = data;
-console.log('Dashboard Data:', data);
+
     // Calculate Total XP and Audit Ratio
     let totalXP = transaction.reduce((acc, tx) => acc + tx.amount, 0);
     const auditRatio = Number(user[0].auditRatio).toFixed(2);
