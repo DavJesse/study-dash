@@ -19,7 +19,7 @@ export function NotFound() {
                     <p className="text-white text-lg mx-auto">Page Not Found</p>
                     <button
                         onClick={() => window.location.href = '/'}
-                        className='my-auto h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer'
+                        className='my-auto h-10 bg-gray-200 text-[var(--primary-color)] p-0 text-lg font-semibold rounded-[5px] cursor-pointer'
                     >Return Home</button>
                 </div>
             </div>
