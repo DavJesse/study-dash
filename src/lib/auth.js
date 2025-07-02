@@ -22,6 +22,12 @@ export const API_URL = 'https://learn.zone01kisumu.ke/api/auth/signin'
  */
 
 export async function login({email, password}) {
+      // Demo mode check
+    if ((email === 'demo' || email === 'demo@demo.com') && password === 'demo') {
+        localStorage.setItem('jwt', 'demo-mode');
+        return 'demo-mode';
+    }
+
     const credentials = btoa(`${email}:${password}`);
 
     const response = await fetch(API_URL, {
