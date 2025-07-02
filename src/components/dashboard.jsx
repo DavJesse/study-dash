@@ -5,6 +5,7 @@ import { FaPhone, FaEnvelope } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 import { XPLineGraph, PassFailPieChart } from "./graphs"
 import logo from '../assets/images/logo/logo.png'
+import { demoData } from '../lib/demo_data';
 
 export function Dashboard() {
     const [data, setData] = useState(null);
@@ -17,6 +18,11 @@ export function Dashboard() {
         if (!token) {
             navigate('/login');
             return;
+        }
+
+        if (token === 'demo-mode') {
+          setData(demoData);
+          return;
         }
 
         fetchDashboardData()
@@ -96,7 +102,7 @@ const sortedTransactions = [...transaction].sort(
                     <h2 className="text-white font-light text-[22px] md:text-3xl xl:text-4xl">Welcome, <strong className="font-bold">{firstName}</strong></h2>                  
                     <button
                         onClick={handleLogout}
-                        className="w-20 md:w-40 h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer"
+                        className="w-20 md:w-40 h-10 bg-gray-200 text-[var(--primary-color)] p-0 text-lg font-semibold rounded-[5px] cursor-pointer"
                         >logout</button>
                 </div>
 
