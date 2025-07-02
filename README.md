@@ -120,6 +120,11 @@ To deploy your own version, push your repository to GitHub and import it into Ve
 - On successful login, a JWT is stored in local storage and used as a Bearer token for all GraphQL queries.
 - If credentials are invalid, an error message is displayed.
 
+## Demo Mode
+Use the following credetials to access demo mode:
+username: demo
+password: demo
+
 ## Customization
 - You can modify the dashboard to display additional statistics or graphs by editing the relevant React components and GraphQL queries.
 - The UI is built with Tailwind CSS and is fully responsive.
