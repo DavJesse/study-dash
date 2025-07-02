@@ -61,7 +61,7 @@ export function LoginForm() {
                         className='block h-10 bg-white/10 text-white rounded px-[10px] text-sm font-light'
                         ></input>
 
-                    <button className='mt-10 h-10 bg-white text-[#080710] p-0 text-lg font-semibold rounded-[5px] cursor-pointer'>Log In</button>
+                    <button className='mt-10 h-10 bg-gray-200 text-[var(--primary-color)] p-0 text-lg font-semibold rounded-[5px] cursor-pointer'>Log In</button>
                 </div>
         </form>
         <div className="green-circle w-30 h-30 absolute rounded-full left-[0%] top-[20%] md:left-[24%] md:top-[24%] lg:left-[31%] lg:top-[6%] xl:left-[34%] xl:top-[17%] 2xl:left-[38%] 2xl:top-[18%] overflow-hidden"></div>
