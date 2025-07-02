@@ -12,9 +12,16 @@ import { getToken } from "./auth";;
  * @throws {Error} If the fetch operation fails or if the GraphQL query returns errors.
  */
 
+import { demoData } from './demo_data';
+
 export async function fetchCurrentUser() {
     const token = getToken();
     if (!token) return null;
+
+    // Return user for demo mode
+    if (token === 'demo-mode') {
+        return demoData.user[0];
+    }
 
     const response = await fetch('https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql', {
         method: 'POST',
