@@ -5,6 +5,7 @@ import { FaPhone, FaEnvelope } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 import { XPLineGraph, PassFailPieChart } from "./graphs"
 import logo from '../assets/images/logo/logo.png'
+import demoData from '../lib/demo_data'
 
 export function Dashboard() {
     const [data, setData] = useState(null);
@@ -17,6 +18,11 @@ export function Dashboard() {
         if (!token) {
             navigate('/login');
             return;
+        }
+
+        if (token === 'demo-mode') {
+          setData(demoData);
+          return;
         }
 
         fetchDashboardData()
@@ -39,7 +45,7 @@ export function Dashboard() {
     
     // Data Extraction
     const {user, transaction, progress, result} = data;
-
+console.log('Dashboard Data:', data);
     // Calculate Total XP and Audit Ratio
     let totalXP = transaction.reduce((acc, tx) => acc + tx.amount, 0);
     const auditRatio = Number(user[0].auditRatio).toFixed(2);
