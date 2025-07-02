@@ -5,7 +5,7 @@ import { FaPhone, FaEnvelope } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 import { XPLineGraph, PassFailPieChart } from "./graphs"
 import logo from '../assets/images/logo/logo.png'
-import demoData from '../lib/demo_data'
+import { demoData } from '../lib/demo_data';
 
 export function Dashboard() {
     const [data, setData] = useState(null);
